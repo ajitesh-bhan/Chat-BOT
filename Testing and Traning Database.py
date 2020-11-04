@@ -37,6 +37,7 @@ for t in timeframes:
             test_done= True
         else: 
             file_creation('Training.csv', data)
+            # testing /traning first column will have parent commnts and second will be there responses 
         
         counter +=1
         if counter % 20 == 0: 
