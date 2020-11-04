@@ -37,7 +37,7 @@ for t in timeframes:
             test_done= True
         else: 
             file_creation('Training.csv', data)
-        # here my training and test size are nearly equal for 70/30 ratio a new counter could be set to change test_done flag
+        
         counter +=1
         if counter % 20 == 0: 
             print(counter*limit,'rows completed so far')
