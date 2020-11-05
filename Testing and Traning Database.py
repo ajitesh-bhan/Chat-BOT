@@ -33,10 +33,10 @@ for t in timeframes:
         stop_time = len(df)
         data= pd.DataFrame(df, columns = ['parent', 'comment'])
         if test_done== False: 
-            file_creation('Testing.csv', data)
+            file_creation('Testing.json', data)
             test_done= True
         else: 
-            file_creation('Training.csv', data)
+            file_creation('Training.json', data)
             # testing /traning first column will have parent commnts and second will be there responses 
         
         counter +=1
