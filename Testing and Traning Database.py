@@ -10,11 +10,11 @@ timeframes= ['2015-01']
 # multiple db timeframes can be put
 
 
-def file_creation(filename, data_frame):
+def file_creation(filename, data_frame, col):
     
     with open(filename,'a', encoding='utf8') as f:
-            data_frame.to_csv(f,header=False)
-            
+            for content in data_frame[col].values:
+                f.write(content+'\n')
     return 
 
 for t in timeframes:
@@ -31,13 +31,15 @@ for t in timeframes:
         # updating last_unix
         #when to stop
         stop_time = len(df)
-        data= pd.DataFrame(df, columns = ['parent', 'comment'])
         if test_done== False: 
-            file_creation('Testing.json', data)
+            file_creation('Testing_parent_response.json', df, 'parent' )
+            file_creation('Testing_child_response.json', df, 'comment')
             test_done= True
         else: 
-            file_creation('Training.json', data)
-            # testing /traning first column will have parent commnts and second will be there responses 
+            file_creation('Training_parent_response.json', df, 'parent')
+            file_creation('Training_child_response.json', df, 'comment')
+  
+     
         
         counter +=1
         if counter % 20 == 0: 
