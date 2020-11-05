@@ -14,7 +14,8 @@ def file_creation(filename, data_frame, col):
     
     with open(filename,'a', encoding='utf8') as f:
             for content in data_frame[col].values:
-                f.write(content+'\n')
+                f.write(content+'\n\n')
+                #new text in new line
     return 
 
 for t in timeframes:
